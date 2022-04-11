@@ -1,0 +1,16 @@
+{
+    "rest-client.environmentVariables": {
+        "Service Principal 1": {
+            "aadV2TenantId": "00000000-0000-0000-0000-000000000000",
+            "aadV2AppUri": "https://analysis.windows.net/powerbi/api",
+            "aadV2ClientId": "00000000-0000-0000-0000-000000000000",
+            "aadV2ClientSecret": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        "Service Principal 2": {
+            "aadV2TenantId": "domain.com",
+            "aadV2AppUri": "https://analysis.windows.net/powerbi/api",
+            "aadV2ClientId": "00000000-0000-0000-0000-000000000000",
+            "aadV2ClientSecret": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        }
+    }
+}

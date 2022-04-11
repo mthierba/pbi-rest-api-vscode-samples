@@ -1,0 +1,32 @@
+# TODO: Fill in your own clientId
+
+@baseUrl = https://api.powerbi.com/v1.0/myorg
+
+####
+
+# @name GetGroups
+GET {{baseUrl}}/groups
+Authorization: Bearer {{$aadV2Token scopes:https://analysis.windows.net/powerbi/api/.default clientId:3a510d50-98f8-4b8d-abec-e6bcb757086a}}
+
+####
+
+# @name GetGroupsWithFilter
+GET {{baseUrl}}/groups?$filter=name eq 'WORKSPACE NAME'
+Authorization: Bearer {{$aadV2Token scopes:https://analysis.windows.net/powerbi/api/.default clientId:3a510d50-98f8-4b8d-abec-e6bcb757086a}}
+
+@workspaceId = {{GetGroupsWithFilter.response.body.value[0].id}}
+
+####
+
+# @name GetReportsInGroup
+GET {{baseUrl}}/groups/{{workspaceId}}/reports
+Authorization: Bearer {{$aadV2Token scopes:https://analysis.windows.net/powerbi/api/.default clientId:3a510d50-98f8-4b8d-abec-e6bcb757086a}}
+
+@datasetId = {{GetReportsInGroup.response.body.value[0].datasetId}}
+@datasetWorkspaceId = {{GetReportsInGroup.response.body.value[0].datasetWorkspaceId}}
+
+####
+
+# @name GetDatsetUsersInGroup
+GET {{baseUrl}}/groups/{{datasetWorkspaceId}}/datasets/{{datasetId}}/users
+Authorization: Bearer {{$aadV2Token scopes:https://analysis.windows.net/powerbi/api/.default clientId:3a510d50-98f8-4b8d-abec-e6bcb757086a}}

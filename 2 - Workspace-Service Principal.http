@@ -1,0 +1,32 @@
+# TODO: Select REST Client environment with Workspace-level Service Principal
+
+@baseUrl = https://api.powerbi.com/v1.0/myorg
+
+####
+
+# @name GetGroups
+GET {{baseUrl}}/groups
+Authorization: Bearer {{$aadV2Token appOnly}}
+
+####
+
+# @name GetGroupsWithFilter
+GET {{baseUrl}}/groups?$filter=name eq 'WORKSPACE NAME'
+Authorization: Bearer {{$aadV2Token appOnly}}
+
+@workspaceId = {{GetGroupsWithFilter.response.body.value[0].id}}
+
+####
+
+# @name GetReportsInGroup
+GET {{baseUrl}}/groups/{{workspaceId}}/reports
+Authorization: Bearer {{$aadV2Token appOnly}}
+
+@datasetId = {{GetReportsInGroup.response.body.value[0].datasetId}}
+@datasetWorkspaceId = {{GetReportsInGroup.response.body.value[0].datasetWorkspaceId}}
+
+####
+
+# @name GetDatsetUsersInGroup
+GET {{baseUrl}}/groups/{{datasetWorkspaceId}}/datasets/{{datasetId}}/users
+Authorization: Bearer {{$aadV2Token appOnly}}

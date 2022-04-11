@@ -1,0 +1,33 @@
+# TODO: Fill in your own clientId
+
+@baseUrl = https://api.powerbi.com/v1.0/myorg
+
+####
+
+# @name GetCapacitiesAsAdmin
+GET {{baseUrl}}/admin/capacities
+Authorization: Bearer {{$aadV2Token scopes:https://analysis.windows.net/powerbi/api/.default clientId:bfec51a4-9e3c-4908-a51b-51972955200c}}
+
+####
+
+# @name GetDatasetsAsAdmin
+GET {{baseUrl}}/admin/datasets
+Authorization: Bearer {{$aadV2Token scopes:https://analysis.windows.net/powerbi/api/.default clientId:bfec51a4-9e3c-4908-a51b-51972955200c}}
+
+####
+
+# @name GetGroupsAsAdminExpanded
+GET {{baseUrl}}/admin/groups?$expand=reports,users,datasets&$top=100&$filter=name eq 'WORKSPACE NAME'
+Authorization: Bearer {{$aadV2Token scopes:https://analysis.windows.net/powerbi/api/.default clientId:bfec51a4-9e3c-4908-a51b-51972955200c}}
+
+####
+
+# @name GetRefreshablesAsAdmin
+GET {{baseUrl}}/admin/capacities/refreshables?$expand=capacity,group
+Authorization: Bearer {{$aadV2Token scopes:https://analysis.windows.net/powerbi/api/.default clientId:bfec51a4-9e3c-4908-a51b-51972955200c}}
+
+####
+
+# @name GetReportsAsAdmin
+GET {{baseUrl}}/admin/reports
+Authorization: Bearer {{$aadV2Token scopes:https://analysis.windows.net/powerbi/api/.default clientId:bfec51a4-9e3c-4908-a51b-51972955200c}}

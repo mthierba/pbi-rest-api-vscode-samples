@@ -1,0 +1,35 @@
+# TODO: Select REST Client environment with R/O Admin Service Principal
+
+@baseUrl = https://api.powerbi.com/v1.0/myorg
+
+####
+
+# @name GetCapacitiesAsAdmin
+GET {{baseUrl}}/admin/capacities
+Authorization: Bearer {{$aadV2Token appOnly}}
+
+####
+
+# @name GetDatasetsAsAdmin
+GET {{baseUrl}}/admin/datasets
+Authorization: Bearer {{$aadV2Token appOnly}}
+
+####
+
+
+# @name GetGroupsAsAdminExpanded
+GET {{baseUrl}}/admin/groups?$expand=reports,users,datasets&$top=100&$filter=name eq 'WORKSPACE-NAME'
+Authorization: Bearer {{$aadV2Token appOnly}}
+
+
+####
+
+# @name GetRefreshablesAsAdmin
+GET {{baseUrl}}/admin/capacities/refreshables?$expand=capacity,group
+Authorization: Bearer {{$aadV2Token appOnly}}
+
+####
+
+# @name GetReportsAsAdmin
+GET {{baseUrl}}/admin/reports
+Authorization: Bearer {{$aadV2Token appOnly}}
