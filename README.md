@@ -56,4 +56,4 @@ Authorization: Bearer {{$aadV2Token appOnly}}
 
 ## Contact
 
-![Twitter Follow](https://img.shields.io/twitter/follow/mthierba)
+[![Twitter Follow](https://img.shields.io/twitter/follow/mthierba)](https://twitter.com/intent/follow?screen_name=mthierba)
