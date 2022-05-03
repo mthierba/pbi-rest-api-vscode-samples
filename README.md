@@ -1,5 +1,6 @@
 # Calling the Power BI REST API with vscode
 
+* Recorded Tutorial on YouTube: <https://goto.pbi.tools/howto-pbi-rest-api-vscode>
 * [Official Power BI REST API Docs](https://docs.microsoft.com/rest/api/power-bi/)
 * [vscode REST Client Extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), [0.24.6 version](https://github.com/Huachao/vscode-restclient/issues/698)
 
